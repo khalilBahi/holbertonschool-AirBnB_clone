@@ -28,6 +28,7 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to instances in __objects."""
+        from models.base_model import BaseModel
         try:
             with open(self.__file_path, "r") as f:
                 for key, value in json.load(f).items():
