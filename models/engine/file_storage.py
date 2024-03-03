@@ -1,11 +1,17 @@
 #!/usr/bin/python3
 """Defines the FileStorage class."""
 import json
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class FileStorage:
-    """Represent an abstracted storage engine.
-    """
+    """Represent an abstracted storage engine."""
 
     __file_path = "file.json"
     __objects = {}
@@ -28,7 +34,7 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to instances in __objects."""
-        from models.base_model import BaseModel
+
         try:
             with open(self.__file_path, "r") as f:
                 for key, value in json.load(f).items():
